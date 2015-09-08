@@ -11,10 +11,10 @@ help:
 	@echo "   5. make purge        - stop and remove the container"
 
 build:
-	@docker build --tag=${USER}/gitlab .
+	@docker build --tag=jfreax/gitlab-armv7 .
 
 release: build
-	@docker build --tag=${USER}/gitlab:$(shell cat VERSION) .
+	@docker build --tag=jfreax/gitlab-armv7:$(shell cat VERSION) .
 
 quickstart:
 	@echo "Starting postgresql container..."
