@@ -7,10 +7,9 @@ GEM_CACHE_DIR="${SETUP_DIR}/cache"
 apt-get update
 
 # install build dependencies for gem installation
-apt-get install -y gcc g++ make patch pkg-config cmake paxctl \
-  libc6-dev ruby2.1-dev \
-  libmysqlclient-dev libpq-dev zlib1g-dev libyaml-dev libssl-dev \
-  libgdbm-dev libreadline-dev libncurses5-dev libffi-dev \
+apt-get install -y sudo gcc ruby2.1-dev g++ make patch pkg-config cmake paxctl \
+  libc6-dev libmysqlclient-dev libpq-dev zlib1g-dev libyaml-dev libssl-dev \
+  libgdbm-dev libreadline-dev libncurses5-dev libffi-dev libkrb5-3 libkrb5-dev \
   libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev
 
 # https://en.wikibooks.org/wiki/Grsecurity/Application-specific_Settings#Node.js
@@ -259,7 +258,7 @@ EOF
 
 # purge build dependencies
 apt-get purge -y --auto-remove gcc g++ make patch pkg-config cmake paxctl \
-  libc6-dev ruby2.1-dev \
+  libc6-dev build-essential \
   libmysqlclient-dev libpq-dev zlib1g-dev libyaml-dev libssl-dev \
   libgdbm-dev libreadline-dev libncurses5-dev libffi-dev \
   libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev
